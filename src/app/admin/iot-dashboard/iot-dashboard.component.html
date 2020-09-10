@@ -1,0 +1,164 @@
+<div class="container-fluid">
+    <div class="block-header">
+        <div class="row">
+            <div class="col-lg-5 col-md-8 col-sm-12">
+                <h2>
+                    <a href="javascript:void(0);" class="btn btn-xs btn-link btn-toggle-fullwidth"
+                        >
+                        <i class="fa fa-arrow-left"></i>
+                        <i class="fa fa-arrow-right"></i>
+                    </a>
+                    IoT Dashboard
+                </h2>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a [routerLink]="['/admin']"><i class="icon-home"></i></a></li>
+                    <li class="breadcrumb-item">Dashboard</li>
+                    <li class="breadcrumb-item active">IoT Dashboard</li>
+                    <li class="breadcrumb-item active">
+                        <Button (click)="getData()" style="background: transparent; border: none;">
+                            Actualiser
+                        </Button> 
+                    </li>
+                </ul>
+                
+            </div>
+            <div style="margin-left:auto">
+               <strong>
+                Dernière mise à jour :
+               </strong>  {{lastTime | slice:0:16}}
+            </div>
+        </div>
+       
+    </div>
+    
+
+    <div class="row clearfix">
+        <!-- <div class="col-lg-4 col-md-4 col-md-12">
+            <app-detail-tiles 
+                [title]="'Poubelle'" 
+                [value]="'250 kw/h'" 
+                [details]="'89% compared to average monthly use'"
+                [chartOptions]="energyOptions"
+            ></app-detail-tiles>
+        </div> -->
+        <!-- <div class="col-lg-4 col-md-4 col-md-12">
+            <app-detail-tiles 
+                [title]="'Lights'" 
+                [value]="'6 Lights are ON'" 
+                [details]="'5% less than daily average'"
+                [chartOptions]="lightOptions"
+            ></app-detail-tiles>
+        </div> -->
+        <!-- <div class="col-lg-4 col-md-4 col-md-12">
+            <app-detail-tiles 
+                [title]="'Daily Avg Temprature'" 
+                [value]="'20° C'" 
+                [details]="'Outside Avg temprature is 32° C'"
+                [chartOptions]="tempratureOptions"
+            ></app-detail-tiles>
+        </div> -->
+    </div>
+   
+    <!-- <div class="row clearfix">
+        <div class="col-lg-6 col-md-6 col-md-12">
+            <app-system-widget [options]="securitySystemOptions" (toggleEvent)="onToggleSecuritySystem()">
+            </app-system-widget>
+        </div>
+    
+        <div class="col-lg-6 col-md-6 col-md-12">
+            <app-system-widget [options]="mainGateOptions" (toggleEvent)="onToggleMainGate()"></app-system-widget>
+        </div>
+    </div> -->
+
+   <!--  <div class="row clearfix">
+        <div  class="col-lg-4 col-md-4 col-sm-12" *ngFor="let poubelle of allPoubelle"> -->
+           <!--  <app-appliance-status-widget [options]="acOptions1"></app-appliance-status-widget> -->
+         <!--   <div class="card appliances-grp" >
+            <div class="body clearfix">
+                <app-poubsvg>
+
+                </app-poubsvg>
+                {{poubelle.name}} 
+                {{poubelle.value}}  -->
+               <!--  <div class="icon"><img src="assets/images/air-conditioner.svg" alt=""></div> -->
+               <!--  <div class="content"> -->
+                   <!--  <h6>{{poubelle.title}} 
+                        <span>
+                        {{poubelle.status}}</span>
+                    </h6> -->
+                    <!-- <p>{{poubelle.name}} <span>{{poubelle.value}}</span></p> -->
+                   <!--  <p>Temperature <span>{{poubelle.temperature}}</span></p>
+                    <p>Filling Level<span>{{poubelle.fillingLevel}}</span></p> -->
+               <!--  </div>
+            </div>
+        </div>
+        </div> -->
+       <!--  <div class="filling levelcol-lg-4 col-md-4 col-sm-12">
+            <app-appliance-status-widget [options]="acOptions2"></app-appliance-status-widget>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12">
+            <app-appliance-status-widget [options]="acOptions3"></app-appliance-status-widget>
+        </div> -->
+   <!--  </div> -->
+   <!--  <div class="row clearfix">
+        <div class="col-lg-4 col-md-4 col-sm-12">
+            <app-appliance-status-widget [options]="acOptions4"></app-appliance-status-widget>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12">
+            <app-appliance-status-widget [options]="acOptions5"></app-appliance-status-widget>
+        </div>
+    </div> -->
+
+    <!-- <div class="row clearfix">
+        <div class="col-lg-4 col-md-4 col-sm-12">
+            <app-appliances-widget
+                [options]="IndoorLightOptions"
+                (toggleEvent)="toggleIndoorLight($event)"
+                (allOnEvent)="allIndoorLightsOn()"
+                (allOffEvent)="allIndoorLightsOff()"
+            ></app-appliances-widget>
+        </div>
+
+        <div class="col-lg-4 col-md-4 col-sm-12">
+            <app-appliances-widget
+                [options]="outdoorLightOptions"
+                (toggleEvent)="toggleOutdoorLight($event)"
+                (allOnEvent)="allOutdoorLightsOn()"
+                (allOffEvent)="allOutdoorLightsOff()"
+            ></app-appliances-widget>
+        </div>
+
+        <div class="col-lg-4 col-md-4 col-sm-12">
+            <app-appliances-widget
+                [options]="otherAppliencesOptions"
+                (toggleEvent)="toggleAppliences($event)"
+            ></app-appliances-widget>
+        </div>
+    </div> -->
+</div>
+<div>
+      <div class="card bg-light mb-3" style="max-width: 20rem; margin-right: 20px;"  *ngFor="let poubelle of allPoubelle">
+            <div class="card-header"> {{poubelle.binGroup}}</div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <p class="card-text">
+                            <app-poubsvg>
+                                
+                            </app-poubsvg>
+                          </p>
+                    </div>
+                    <div class="col" style="margin-top: 25px;">
+                        <div *ngFor="let poubCol of poubelle.columns">
+                           <strong>
+                               {{poubCol.colum}}:
+                           </strong> 
+                            {{poubCol.value}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+</div>
+<app-chart-echart></app-chart-echart>
+

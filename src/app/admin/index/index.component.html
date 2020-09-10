@@ -1,0 +1,54 @@
+    
+<div class="container-fluid" *ngIf="!isResizing">
+    <div class="block-header">
+        <div class="row">
+            <div class="col-lg-5 col-md-8 col-sm-12">                        
+                <h2>
+                    <a href="javascript:void(0);" class="btn btn-xs btn-link btn-toggle-fullwidth" (click)="toggleFullWidth()">
+                        <i class="fa fa-arrow-left" *ngIf="sidebarVisible"></i>
+                        <i class="fa fa-arrow-right" *ngIf="!sidebarVisible"></i>
+                    </a> Dashboard</h2>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a [routerLink]="['/admin']"><i class="icon-home"></i></a></li>                            
+                        <li class="breadcrumb-item active">Dashboard</li>
+                    </ul>
+            </div>            
+        </div>
+    </div>
+    <div class="row clearfix">
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <app-detail-tiles
+                [title]="'TOTAL OF BINS'"
+                [value]= 5
+            ></app-detail-tiles>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <app-detail-tiles
+                [title]="'ACTIVES BINS'"
+                [value]= 1
+            ></app-detail-tiles>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <app-detail-tiles
+                [title]="'DEFECTIVES BINS'"
+                [value]= 4
+            ></app-detail-tiles>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <app-detail-tiles
+                [title]="'FILLING AVERAGE'"
+                [value]="likes.toLocaleString()"
+                [chartOptions]="LikesOptions"
+            ></app-detail-tiles>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-md-12">
+        <app-detail-tiles 
+            [title]="'Daily Avg Temprature'" 
+            [value]="'20° C'" 
+            [details]="'Outside Avg temprature is 32° C'"
+            [chartOptions]="LikesOptions"
+        ></app-detail-tiles>
+    </div> 
+</div>
+
